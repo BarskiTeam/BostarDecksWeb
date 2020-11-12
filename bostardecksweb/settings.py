@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_keycloak.apps.KeycloakAppConfig',
 ]
 
 MIDDLEWARE = [
@@ -47,6 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_keycloak.middleware.BaseKeycloakMiddleware',
 ]
 
 ROOT_URLCONF = 'bostardecksweb.urls'
@@ -99,6 +101,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
+AUTHENTICATION_BACKENDS = [
+    'django_keycloak.auth.backends.KeycloakAuthorizationCodeBackend',
+]
+
+LOGIN_URL = 'keycloak_login'
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
