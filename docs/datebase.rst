@@ -40,4 +40,4 @@ FlashCard
 Level
 =====
 * **name**: string
-* **repeat-frequency**: int # time in seconds
+* **repeat_frequency**: int # time in seconds
