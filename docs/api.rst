@@ -19,7 +19,7 @@ Response:
                 "tag": "string"
             }
         ],
-        "auth-field": "string"
+        "auth_field": "string"
     }
 
 
@@ -42,8 +42,8 @@ Response:
                 "tip": "string",
                 "tag": "string",
                 "level": "string",
-                "deck-id": "int"
+                "deck_id": "int"
             }
         ],
-        "auth-field": "string"
+        "auth_field": "string"
     }
