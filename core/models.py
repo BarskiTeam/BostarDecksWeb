@@ -19,15 +19,15 @@ class Deck(models.Model):
 class DeckFlashCard(models.Model):
     flashCard = models.ForeignKey('FlashCard', on_delete=models.SET_NULL, null=True)
     level = models.ForeignKey('Level', on_delete=models.SET_NULL, null=True)
-    good_answers = models.IntegerField(verbose_name="good answers")
-    bad_answers = models.IntegerField(verbose_name="bad answers")
+    good_answers = models.IntegerField(verbose_name="good answers", default=0)
+    bad_answers = models.IntegerField(verbose_name="bad answers", default=0)
 
     def __str__(self):
         return str("" + self.deck.name +" "+  self.flashCard.name)
 
     class Meta:
-        verbose_name = "DeckFlash"
-        verbose_name_plural = "DeckFlashes"
+        verbose_name = "DeckFlashCard"
+        verbose_name_plural = "DeckFlashCards"
         ordering = ['id']
 
 
