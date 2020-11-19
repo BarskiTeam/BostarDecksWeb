@@ -6,6 +6,8 @@ class Deck(models.Model):
     description = models.CharField(max_length=1200, verbose_name="Description of deck")
     tag = models.CharField(max_length=50, verbose_name="tag")
     flashCard = models.ManyToManyField('FlashCard', related_name='flashCard', through='DeckFlashCard')
+    public = models.BooleanField(default=False)
+    owner = models.ForeignKey("auth.User", related_name="deck", on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return str(self.name)

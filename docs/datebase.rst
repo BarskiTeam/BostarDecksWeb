@@ -15,6 +15,8 @@ Deck
 * **name**: string
 * **description**: string
 * **deckFlashCard**: FK
+* **owner**: FK
+* **public**: boolean
 * **tag**: string
 
 DeckFlashCard
