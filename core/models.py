@@ -5,7 +5,7 @@ class Deck(models.Model):
     name = models.CharField(max_length=100, verbose_name="name of deck")
     description = models.CharField(max_length=1200, verbose_name="Description of deck")
     tag = models.CharField(max_length=50, verbose_name="tag")
-    deckFlashCard = models.ManyToManyField('DeckFlashCard')
+    flashCard = models.ManyToManyField('FlashCard', related_name='flashCard', through='DeckFlashCard')
 
     def __str__(self):
         return str(self.name)
@@ -17,6 +17,7 @@ class Deck(models.Model):
 
 
 class DeckFlashCard(models.Model):
+    deck = models.ForeignKey('Deck', on_delete=models.SET_NULL, null=True)
     flashCard = models.ForeignKey('FlashCard', on_delete=models.SET_NULL, null=True)
     level = models.ForeignKey('Level', on_delete=models.SET_NULL, null=True)
     good_answers = models.IntegerField(verbose_name="good answers", default=0)
@@ -36,6 +37,7 @@ class FlashCard(models.Model):
     reverse = models.CharField(max_length=1200, verbose_name="Revers of card")
     averse = models.CharField(max_length=1200, verbose_name="Avers of card")
     tip = models.CharField(max_length=100, verbose_name="Tip for flash card")
+    deck = models.ManyToManyField('Deck', related_name='deck', through='DeckFlashCard')
     #tag = lista tagów/stringow
 
     def __str__(self):
