@@ -21,7 +21,7 @@ from .serializers import (
 def api_root(request, format=None):
     return Response({
         'user': reverse('user-list', request=request, format=format),
-        #'deck': reverse('deck-list', request=request, format=format),
+        'deck': reverse('deck-list', request=request, format=format),
         'deckFlashCard': reverse('deckFlashCard-list', request=request,
                                  format=format),
         'flashCard': reverse('flashCard-list', request=request,
