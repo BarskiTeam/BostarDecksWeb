@@ -1,0 +1,20 @@
+<!-- templates/front/base.html -->
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}Tytul do zastąpienia {% endblock %}</title>
+    {% block style %}
+    {% endblock style %}
+</head>
+<body>
+   <main>
+       {% block content %}
+       {% endblock %}
+
+       {% block javascript %}
+       {% endblock javascript %}
+   </main>
+</body>
+</html>
