@@ -16,3 +16,11 @@ def dashboardView(request):
 
 def deckView(request):
     return HttpResponse("deck")
+
+
+def baseView(request):
+    return render(request, "front/base.html")
+
+
+def przykladView(request):
+    return render(request, "front/przyklad.html")
