@@ -25,6 +25,7 @@ urlpatterns = [
     path('api/v1/', include('api_v1.urls')),
     path('core/', include('core.urls')),
     path('front/', include('front.urls')),
+    path('', include('front.urls')),
 ]
 
 if DEBUG:
