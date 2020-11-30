@@ -1,0 +1,49 @@
+<!-- templates/front/raw.html -->
+{% extends 'front/base.html' %}
+{% load static %}
+{% block content %}
+  <!--   content raw.html-->
+<!--  {/% if user.is_authenticated %}-->
+    {% block authenticated %}
+      <!-- authenticated raw.html -->
+      <div class="jumbotron text-center" style="margin-bottom:0">
+        <h1>Bostar Deck</h1>
+        <p>Resize this responsive page to see the effect!</p>
+      </div>
+
+      <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/front/dashboard">Dashboard</a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="/front/decks">Decks</a></li>
+              <li><a href="/front/settings">Settings</a></li>
+              <li><a href="/front/statistics">Statistics</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      {{ block.super }}
+    {% endblock authenticated %}
+<!--  {/% else %}-->
+    {% block unauthenticated %}
+      <!-- unauthenticated raw.html-->
+      <div class="contentttt class" style>
+             <p>Nie jesteś zalogowany!</p>
+             <a href="login" class="btn btn-w-m btn-success">Zaloguj się !</a>
+      </div>
+    {% endblock unauthenticated %}
+<!--  {/% endif %}-->
+{% endblock content %}
+{% block scripts %}
+    {{ block.super }}
+    <!-- scripts - raw.html -->
+{% endblock scripts %}

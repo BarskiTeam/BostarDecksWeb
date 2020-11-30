@@ -11,11 +11,19 @@ def loginView(request):
 
 
 def dashboardView(request):
-    return HttpResponse("dashboard")
+    return render(request, 'front/dashboard.html')
+
+
+def settingsView(request):
+    return render(request, 'front/settings.html')
+
+
+def statisticsView(request):
+    return render(request, 'front/statistics.html')
 
 
 def deckView(request):
-    return HttpResponse("deck")
+    return render(request, 'front/decks.html')
 
 
 def baseView(request):
