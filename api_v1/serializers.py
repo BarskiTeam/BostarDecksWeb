@@ -1,8 +1,7 @@
 
 from rest_framework import serializers
-from django.contrib.auth.models import User
 from core.models import (
-    Deck, DeckFlashCard, FlashCard, Level
+    Deck, DeckFlashCard, FlashCard, Level, User
 )
 
 
