@@ -48,7 +48,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=100, verbose_name='name of levels')),
-                ('repeat_frequancy', models.IntegerField(verbose_name='time of frequency')),
+                ('repeat_frequency', models.IntegerField(verbose_name='time of frequency')),
             ],
             options={
                 'verbose_name': 'Level',

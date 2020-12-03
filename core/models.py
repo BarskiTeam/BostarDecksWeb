@@ -53,7 +53,7 @@ class FlashCard(models.Model):
 
 class Level(models.Model):
     name = models.CharField(max_length=100, verbose_name="name of levels")
-    repeat_frequancy = models.IntegerField(verbose_name="time of frequency")
+    repeat_frequency = models.IntegerField(verbose_name="time of frequency")
 
     def __str__(self):
         return str(self.name)
