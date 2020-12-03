@@ -1,4 +1,3 @@
-from django.contrib.auth.models import User
 from django.shortcuts import render
 from rest_framework import viewsets, permissions
 from rest_framework.decorators import api_view
@@ -6,7 +5,7 @@ from rest_framework.response import Response
 from rest_framework.reverse import reverse
 
 from core.models import (
-    Deck, DeckFlashCard, FlashCard, Level
+    Deck, DeckFlashCard, FlashCard, Level, User
 )
 from .permissions import IsOwnerOrReadOnly
 from .serializers import (
