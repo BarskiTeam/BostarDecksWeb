@@ -15,6 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.static import static
+
+from bostardecksweb.settings import DEBUG, STATIC_URL, STATIC_ROOT
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,3 +26,6 @@ urlpatterns = [
     path('core/', include('core.urls')),
     path('front/', include('front.urls')),
 ]
+
+if DEBUG:
+    urlpatterns = urlpatterns + static(STATIC_URL, document_root=STATIC_ROOT)
