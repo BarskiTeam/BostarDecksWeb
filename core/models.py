@@ -9,9 +9,9 @@ class Deck(models.Model):
     name = models.CharField(max_length=100, verbose_name="name of deck")
     description = models.CharField(max_length=1200, verbose_name="Description of deck")
     tag = models.CharField(max_length=50, verbose_name="tag")
-    flashCard = models.ManyToManyField('FlashCard', related_name='flashCard', through='DeckFlashCard')
+    flashCard = models.ManyToManyField('FlashCard', related_name='deck_list', through='DeckFlashCard')
     public = models.BooleanField(default=False)
-    owner = models.ForeignKey("User", related_name="deck", on_delete=models.CASCADE, null=True)
+    owner = models.ForeignKey("User", related_name="deck_list", on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return str(self.name)
@@ -43,7 +43,7 @@ class FlashCard(models.Model):
     reverse = models.CharField(max_length=1200, verbose_name="Revers of card")
     averse = models.CharField(max_length=1200, verbose_name="Avers of card")
     tip = models.CharField(max_length=100, verbose_name="Tip for flash card")
-    deck = models.ManyToManyField('Deck', related_name='deck', through='DeckFlashCard')
+    deck = models.ManyToManyField('Deck', related_name='flashCard_list', through='DeckFlashCard')
     #tag = lista tagów/stringow
 
     def __str__(self):
