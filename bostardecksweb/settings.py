@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'bostardecksweb.wsgi.application'
 DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'boostar_deck',
+            'NAME': 'bostar_deck',
             'USER': 'postgres',
             'PASSWORD': os.getenv("DBPASSWORD"),
             'HOST': 'localhost',
