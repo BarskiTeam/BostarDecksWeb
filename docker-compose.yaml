@@ -6,7 +6,7 @@ services:
     restart: always
     environment:
       POSTGRES_PASSWORD: ${DBPASSWORD}
-      POSTGRES_DB: boostar_deck
+      POSTGRES_DB: bostar_deck
     ports:
       - 5432:5432
 
