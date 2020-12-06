@@ -1,5 +1,6 @@
 <!-- templates/front/decks.html -->
 {% extends 'front/raw.html' %}
+{% load static %}
 {% block title %} Decks {% endblock title %}
 {% block authenticated %}
   {{ block.super }}
@@ -16,6 +17,18 @@
         <hr class="hidden-sm hidden-md hidden-lg">
       </div>
       <div class="col-sm-8">
+        <table id="table_decks" class="table">
+          <thead>
+          <tr>
+              <th>#id</th>
+              <th>Name</th>
+              <th>description</th>
+              <th>public</th>
+              <th>Details</th>
+              <!-- <th>User</th> ZAPEWNE DO DODANIA W PRZYSZLOSCI -->
+          </tr>
+          </thead>
+        </table>
         <h2>TITLE HEADING</h2>
         <h5>Title description, Dec 7, 2017</h5>
         <div class="fakeimg">Fake Image</div>
@@ -31,3 +44,10 @@
     </div>
   </div>
 {% endblock authenticated %}
+{% block scripts %}
+  {% if user.is_authenticated %}
+    {{ block.super }}
+    <!-- scripts - decks.html -->
+    <script src='{% static "front/js/decks.js" %}' type="text/javascript"></script>
+  {% endif %}
+{% endblock scripts %}
