@@ -22,6 +22,7 @@ from bostardecksweb.settings import DEBUG, STATIC_URL, STATIC_ROOT
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
     path('api/v1/', include('api_v1.urls')),
     path('core/', include('core.urls')),
     path('front/', include('front.urls')),
