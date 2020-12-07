@@ -1,0 +1,50 @@
+<!-- templates/front/deck_menu.html -->
+{% extends 'front/raw.html' %}
+{% load static %}
+{% block title %} Deck Menu {% endblock title %}
+{% block authenticated %}
+  {{ block.super }}
+  <!--  authenticated - deck_menu.html -->
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-sm-8">
+        <div class="row">
+          <a href="#" class="btn btn-primary btn-sm">Add</a>
+          <a href="#q" class="btn btn-primary btn-sm">Edition</a>
+          <a href="#" class="btn btn-primary btn-sm">Start Game</a>
+        </div>
+        <table class="table table-bordered" id="table_flashCard" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th>#id</th>
+              <th>Name</th>
+              <th>Averse</th>
+              <th>Edition</th>
+            </tr>
+          </thead>
+        </table>
+        <hr>
+      </div>
+    </div>
+  </div>
+{% endblock authenticated %}
+{% block generate_revers_url %}
+  {{ block.super }}
+  <!--  generate_revers_url - decks.html-->
+  var revers_urls = {
+    front_flashcard: "{% url 'front:flashcard' %}",
+    deck_flashcards: "/api/v1/deck/1/flashCards/"
+  }
+  function get_urls(){
+    return revers_urls
+  }
+{% endblock generate_revers_url %}
+{% block scripts %}
+  {% if user.is_authenticated %}
+    {{ block.super }}
+    <!-- scripts - deck_menu.html -->
+    <script src='{% static "front/js/deck_menu.js" %}' type="text/javascript"></script>
+  {% endif %}
+{% endblock scripts %}
