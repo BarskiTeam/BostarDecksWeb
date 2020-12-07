@@ -1,5 +1,7 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+
+from core.models import Deck
 
 
 def dashboardView(request):
@@ -16,6 +18,11 @@ def statisticsView(request):
 
 def deckView(request):
     return render(request, 'front/decks.html')
+
+
+def deck_details_view(request, deck_id):
+    deck = get_object_or_404(Deck, pk=deck_id)
+    return render(request, 'front/deck_details.html', {'deck': deck})
 
 
 def baseView(request):

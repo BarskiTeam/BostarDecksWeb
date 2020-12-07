@@ -12,7 +12,7 @@ $( document ).ready(function() {
                 '<td>' + response[i].name + '</td>' +
                 '<td>' + response[i].description + '</td>' +
                 '<td>' + response[i].public + '</td>' +
-                '<td>' + ' <a href="/front/decks/' + response[i].id + '" class="button">' + response[i].name + '</a>' +
+                '<td>' + ' <a href="/front/decks/details/' + response[i].id + '" class="button">' + response[i].name + '</a>' +
                 '</td>' +
              '</td>');
           }
