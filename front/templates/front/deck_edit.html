@@ -1,0 +1,58 @@
+<!-- templates/front/deck_edit.html -->
+{% extends 'front/raw.html' %}
+{% load static %}
+{% block title %} Deck Edit {% endblock title %}
+{% block authenticated %}
+  {{ block.super }}
+  <!--  authenticated - deck_edit.html -->
+  <div class="container">
+    <div class="row">
+      <a href="#" class="btn btn-primary btn-sm">Back</a>
+    </div>
+    <div class="row">
+
+      <div class="col-sm-8">
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Name</label>
+          <div class="col-sm-10">
+            <input id="name_deck" type="text" class="form-control">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Description</label>
+          <div class="col-sm-10">
+            <input id="description_deck" type="text" class="form-control">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Public</label>
+          <div class="col-sm-10">
+            <input id="public_deck" type="text" class="form-control">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Tags</label>
+          <div class="col-sm-10">
+            <input id="tag_deck" type="text" class="form-control">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock authenticated %}
+{% block generate_revers_url %}
+  {{ block.super }}
+  <!--  generate_revers_url - deck_edit.html-->
+  var revers_urls = {
+    front_flashcard: "{% url 'front:flashcard' %}",
+    api_deck: "{% url 'api_v1:deck-list' %}",
+    flashcards: "/flashcards/"
+  }
+{% endblock generate_revers_url %}
+{% block scripts %}
+  {% if user.is_authenticated %}
+    {{ block.super }}
+    <!-- scripts - deck_edit.html -->
+    <script src='{% static "front/js/deck_edit.js" %}' type="text/javascript"></script>
+  {% endif %}
+{% endblock scripts %}

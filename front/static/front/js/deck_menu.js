@@ -1,4 +1,4 @@
-url_home="http://127.0.0.1:8000"
+url_home=get_urls().url_home
 let number_of_deck=null
 let regex = null
 function func_for_number_of_deck(){

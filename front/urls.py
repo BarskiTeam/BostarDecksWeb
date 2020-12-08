@@ -10,6 +10,7 @@ urlpatterns = [
     path('decks', views.decksListView, name="deck"),
     path('decks/<int:deck_id>/', views.deckView, name="deck_detail"),
     path('flashCard/', views.flashCardView, name="flashcard"),
+    path('decks/<int:deck_id>/edit', views.deckEditView, name="deck_edit"),
     path('settings', views.settingsView, name="settings"),
     path('statistics', views.statisticsView, name="statistics"),
     path('przyklad', views.przykladView, name="przyklad"),

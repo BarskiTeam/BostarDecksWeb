@@ -29,6 +29,11 @@ def flashCardView(request):
     return HttpResponse("ahjo flashCard_id")
 
 
+def deckEditView(request, deck_id):
+    deck = get_object_or_404(Deck, pk=deck_id)
+    return render(request, 'front/deck_edit.html', {'deck': deck})
+
+
 def baseView(request):
     return render(request, "front/base.html")
 
