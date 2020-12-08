@@ -25,7 +25,8 @@ Response:
 
 Get flashCards
 **************
-`</api/v1/flashcard/deck/\<deck:id\>>`_ 
+EXAMPLE:
+`</api/v1/flashCard/1/>`_
 
 GET:
 
