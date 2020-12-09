@@ -35,7 +35,9 @@
   <!--  generate_revers_url - decks.html-->
   var revers_urls = {
     front_flashcard: "{% url 'front:flashcard' %}",
-    deck_flashcards: "/api/v1/deck/1/flashCards/"
+    deck_flashcards: "/api/v1/deck/1/flashCards/",
+    api_deck: "{% url 'api_v1:deck-list' %}",
+    flashcards: "/flashCards/"
   }
   function get_urls(){
     return revers_urls
