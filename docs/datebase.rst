@@ -33,11 +33,10 @@ FlashCard
 ==========
 
 * **name**: string
-* **reverse**: string
 * **averse**: string
+* **reverse**: string
 * **tip**: string
-.. this is useable for Kusofc - if i wont able to remember word
-i can activate show a tips for a word
+.. this is useable for Kusofc - if i wont able to remember word i can activate show a tips for a word
 
 * **tag**: list<string>
 
