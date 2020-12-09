@@ -1,6 +1,5 @@
-url_home=get_urls().url_home
+console.log("ahoj")
 let number_of_deck=null
-let regex = null
 function func_for_number_of_deck(){
   let url = window.location.href
   table_of_url = url.split('/')
@@ -17,23 +16,51 @@ function func_for_number_of_deck(){
 
 $( document ).ready(function() {
   func_for_number_of_deck()
-  console.log("deck_menu.js")
-  $.ajax({
-      url: url_home + get_urls().api_deck + number_of_deck+ "/flashCards/",
-      type: "GET",
-  }).done(function (response) {
-      for(i=0; i<response.length; i++){
-          console.log("response[i].id:"+response[i].id)
-          $('#table_flashCard').append(
-            '<tr>' +
-                '<td>' + response[i].id + '</td>' +
-                '<td>' + response[i].name + '</td>' +
-                '<td>' + response[i].averse + '</td>' +
-                '<td>' + ' <a href="'+ get_urls().front_flashcard + /*response[i].id +*/ '" class="button">' + response[i].name + '</a>' +
-                '</td>' +
-             '</td>');
+  console.log("deck_menu.js - ajax function")
+  destination_url = revers_urls.api_deck + number_of_deck + "/flashcards/"
+  console.log("destination_url:"+destination_url)
+  $('#table_flashcard').DataTable({
+    ajax: {
+       url: destination_url,
+       type: "GET",
+       dataSrc: "",
+    },
+
+    dom: 'Bfrtip',
+    buttons: [
+        {
+            extend: 'copyHtml5',
+            exportOptions: {
+                columns: [ 0, ':visible' ]
+            }
+        },
+        {
+            extend: 'excelHtml5',
+            exportOptions: {
+                columns: ':visible'
+            }
+        },
+        {
+            extend: 'pdfHtml5',
+            exportOptions: {
+                columns: [ 0, 1, 2 ]
+            }
+        },
+        {
+            extend: 'colvis',
+            columns: ':not(.noVis)'
+        }
+    ],
+    columns: [
+        { data: 'id' },
+        { data: 'name' },
+        { data: 'averse' },
+        { data: 'edit',
+          render: function (data, type, full, meta) {
+            numer = data
+            return '<a href="' + revers_urls.flashcards + numer + '" class="btn btn-w-m btn-success"> Edit </a>';
           }
-  }).fail(function () {
-    alert("Exist problem with connection to api")
-  })
+        },
+    ]
+  });
 })
