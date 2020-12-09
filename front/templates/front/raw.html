@@ -37,9 +37,10 @@
   {% else %}
     {% block unauthenticated %}
       <!-- unauthenticated raw.html-->
-      <div class="contentttt class" style>
-             <p>Nie jesteś zalogowany!</p>
-             <a href="accounts/login" class="btn btn-w-m btn-success">Zaloguj się !</a>
+      <div class="content class" style>
+             <p>You aren't login!</p>
+<!--             <a href="accounts/login" class="btn btn-w-m btn-success">Zaloguj się !</a>-->
+             <a href="{% url 'login' %}" class="btn btn-w-m btn-success">Log in !</a>
       </div>
     {% endblock unauthenticated %}
   {% endif %}
