@@ -41,8 +41,8 @@ class DeckFlashCard(models.Model):
 
 class FlashCard(models.Model):
     name = models.CharField(max_length=100, verbose_name="name of flashcard")
-    reverse = models.CharField(max_length=1200, verbose_name="Revers of card")
     averse = models.CharField(max_length=1200, verbose_name="Avers of card")
+    reverse = models.CharField(max_length=1200, verbose_name="Revers of card")
     tip = models.CharField(max_length=100, verbose_name="Tip for flash card")
     deck = models.ManyToManyField('Deck', related_name='flashCard_list', through='DeckFlashCard')
     #tag = lista tagów/stringow
