@@ -1,6 +1,8 @@
 from django.urls import path, include
 from . import views
+from .apps import FrontConfig
 
+app_name = FrontConfig.name
 urlpatterns = [
     path('', views.dashboardView, name="dashboard"),
     path('dashboard', views.dashboardView, name="dashboard"),
