@@ -2,14 +2,6 @@ from django.http import HttpResponse
 from django.shortcuts import render
 
 
-def startView(request):
-    return HttpResponse("start")
-
-
-def loginView(request):
-    return HttpResponse("login")
-
-
 def dashboardView(request):
     return render(request, 'front/dashboard.html')
 
