@@ -9,3 +9,6 @@ _templates
 db.sqlite3
 .idea/*
 */__pycache__/*
+htmlcov
+pytestdebug.log
+.coverage
