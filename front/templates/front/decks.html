@@ -51,11 +51,15 @@
     api_v1_deck_list: "{% url 'api_v1:deck-list' %}",
     front_deck:       "{% url 'front:deck' %}"
   }
+  function get_urls(){
+    return revers_urls
+  }
 {% endblock generate_revers_url %}
 {% block scripts %}
   {% if user.is_authenticated %}
     {{ block.super }}
     <!-- scripts - decks.html -->
+
     <script src='{% static "front/js/decks.js" %}' type="text/javascript"></script>
   {% endif %}
 {% endblock scripts %}
