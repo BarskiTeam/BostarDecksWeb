@@ -8,7 +8,7 @@ services:
       POSTGRES_PASSWORD: ${DBPASSWORD}
       POSTGRES_DB: bostar_deck
     ports:
-      - 5432:5432
+      - 5431:5432
 
   keycloak:
     image: quay.io/keycloak/keycloak:11.0.3
