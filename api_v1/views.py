@@ -1,6 +1,5 @@
-from django.shortcuts import render
 from rest_framework import viewsets, permissions
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, action
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
 
@@ -13,8 +12,8 @@ from .serializers import (
     FlashCardSerializer, LevelSerializer, UserSerializer
 )
 
-# Create your views here.
 
+# Create your views here.
 
 @api_view(['GET'])
 def api_root(request, format=None):
@@ -43,8 +42,16 @@ class DeckViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly,
                           IsOwnerOrReadOnly]
 
+    # example destination_url of this view : http://127.0.0.1:8000/api/v1/deck/1/flashCards/
+    @action(methods=['get'], detail=True, permission_classes=[IsOwnerOrReadOnly])
+    def flashCards(self, request, pk):
+        deck = Deck.objects.get(id=pk)
+        flashCard = deck.flashCard
+        serializer = FlashCardSerializer(flashCard, many=True)
+        return Response(serializer.data)
+
     def perform_create(self, serializer):
-         serializer.save(owner=self.request.user)
+        serializer.save(owner=self.request.user)
 
 
 class FlashCardViewSet(viewsets.ModelViewSet):
