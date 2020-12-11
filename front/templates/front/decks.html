@@ -44,6 +44,14 @@
     </div>
   </div>
 {% endblock authenticated %}
+{% block generate_revers_url %}
+  {{ block.super }}
+  <!--  generate_revers_url - decks.html-->
+  var revers_urls = {
+    api_v1_deck_list: "{% url 'api_v1:deck-list' %}",
+    front_deck:       "{% url 'front:deck' %}"
+  }
+{% endblock generate_revers_url %}
 {% block scripts %}
   {% if user.is_authenticated %}
     {{ block.super }}

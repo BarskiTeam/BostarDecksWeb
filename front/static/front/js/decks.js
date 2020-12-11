@@ -1,7 +1,9 @@
 $( document ).ready(function() {
   console.log("decks.js")
+  let destinationUrl = revers_urls.api_v1_deck_list
+  console.log("destinationUrl:" + destinationUrl)
   $.ajax({
-      url: "http://127.0.0.1:8000/api/v1/deck/",
+      url: destinationUrl,
       type: "GET",
   }).done(function (response) {
       for(i=0; i<response.length; i++){
@@ -12,7 +14,7 @@ $( document ).ready(function() {
                 '<td>' + response[i].name + '</td>' +
                 '<td>' + response[i].description + '</td>' +
                 '<td>' + response[i].public + '</td>' +
-                '<td>' + ' <a href="decks/' + response[i].id + '" class="button">' + response[i].name + '</a>' +
+                '<td>' + ' <a href="' + revers_urls.front_deck + "/" +response[i].id + '" class="button">' + response[i].name + '</a>' +
                 '</td>' +
              '</td>');
           }
