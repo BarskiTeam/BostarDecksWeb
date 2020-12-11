@@ -1,6 +1,9 @@
 from django.urls import path, include
 from . import views
 from rest_framework.routers import DefaultRouter
+from .apps import ApiV1Config
+
+app_name = ApiV1Config.name
 
 router = DefaultRouter()
 router.register(r'user', views.UserViewSet)
