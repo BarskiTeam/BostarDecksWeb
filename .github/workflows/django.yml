@@ -40,10 +40,9 @@ jobs:
 
       - name: Pylint check
         run: |
-          pipenv shell
           apps_names=$(find . -maxdepth 1  -name "*" -type d -not -name '.*')  
           for i in $apps_names; do
-          pylint $i
+          pipenv run pylint $i
           done
 
       - name: Black reformat check
