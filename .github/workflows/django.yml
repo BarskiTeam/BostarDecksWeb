@@ -19,6 +19,11 @@ jobs:
         with:
           python-version: 3.8
 
+      - name: Install pipenv, libpq, and pandoc
+        run: |
+          sudo apt-get install libpq-dev -y
+          pip install pipenv
+
       - name: Cache requirements
         uses: actions/cache@v2
         id: cache-pipenv
@@ -27,11 +32,6 @@ jobs:
           key: ${{ runner.os }}-pipenv-${{ hashFiles('**/Pipfile.lock') }}
           restore-keys: |
             ${{ runner.os }}-pipenv-
-
-      - name: Install pipenv
-        if: steps.cache-pipenv.outputs.cache-hit != 'true'
-        run: |
-          pip install pipenv
 
       - name: Install dependency
         if: steps.cache-pipenv.outputs.cache-hit != 'true'
