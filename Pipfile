@@ -5,23 +5,25 @@ name = "pypi"
 
 [packages]
 factory-boy = "*"
-pylint = "*"
-pytest = "*"
-pytest-cov = "*"
-pytest-django = "*"
 python-dotenv = "*"
 django = "*"
 djangorestframework = "*"
-markdown = "*"
 django-filter = "*"
 psycopg2 = "*"
 
 [dev-packages]
+tox = "*"
+pylint = "*"
+pylint-django = "*"
+pytest = "*"
+pytest-cov = "*"
+pytest-django = "*"
 black = "*"
 mypy = "*"
 pdbpp = "*"
 sphinx = "*"
 sphinx-rtd-theme = "*"
+flake8 = "*"
 
 [requires]
 python_version = "3.8"
