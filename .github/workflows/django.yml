@@ -28,10 +28,10 @@ jobs:
         uses: actions/cache@v2
         id: cache-pipenv
         with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pipenv-${{ hashFiles('**/Pipfile.lock') }}
+          path: ~/.local/share/virtualenvs
+          key: ${{ runner.os }}-virtualenvs-${{ hashFiles('**/Pipfile.lock') }}
           restore-keys: |
-            ${{ runner.os }}-pipenv-
+            ${{ runner.os }}-virtualenvs-
 
       - name: Install dependency
         if: steps.cache-pipenv.outputs.cache-hit != 'true'
