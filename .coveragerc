@@ -10,6 +10,7 @@ omit =
     venv/*,
     htmlcov/*,
     .vscode/*,
+    .tox/*,
     .mypy_cache/*
     .pytest_cache/*
     .github/*
