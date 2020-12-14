@@ -38,6 +38,17 @@ jobs:
         run: |
           pipenv install --dev
 
+      - name: Pylint check
+        run: |
+          apps_names=$(find . -maxdepth 1  -name "*" -type d -not -name '.*')  
+          for i in $apps_names; do
+          pylint $i
+          done
+
+      - name: Black reformat check
+        run: |
+          black --check . --exclude 'migrations|manage.py'
+
       - name: Run django test
         run: |
           pipenv run py.test
