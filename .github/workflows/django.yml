@@ -39,6 +39,7 @@ jobs:
           pipenv install --dev
 
       - name: Pylint check
+        continue-on-error: True
         run: |
           apps_names=$(find . -maxdepth 1  -name "*" -type d -not -name '.*')  
           for i in $apps_names; do
@@ -46,6 +47,7 @@ jobs:
           done
 
       - name: Black reformat check
+        continue-on-error: True
         run: |
           pipenv run black --check . --exclude 'migrations|manage.py'
 
