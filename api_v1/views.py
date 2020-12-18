@@ -4,12 +4,12 @@ from rest_framework.response import Response
 from rest_framework.reverse import reverse
 
 from core.models import (
-    Deck, DeckFlashCard, FlashCard, Level, User
+    Deck, DeckFlashcard, Flashcard, Level, User
 )
 from .permissions import IsOwnerOrReadOnly
 from .serializers import (
-    DeckSerializer, DeckFlashCardSerializer,
-    FlashCardSerializer, LevelSerializer, UserSerializer
+    DeckSerializer, DeckFlashcardSerializer,
+    FlashcardSerializer, LevelSerializer, UserSerializer
 )
 
 
@@ -42,28 +42,28 @@ class DeckViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly,
                           IsOwnerOrReadOnly]
 
-    # example destination_url of this view : http://127.0.0.1:8000/api/v1/deck/1/flashCards/
+    # example destination_url of this view : http://127.0.0.1:8000/api/v1/deck/1/flashcards/
     @action(methods=['get'], detail=True, permission_classes=[IsOwnerOrReadOnly])
-    def flashCards(self, request, pk):
+    def flashcards(self, request, pk):
         deck = Deck.objects.get(id=pk)
-        flashCard = deck.flashCard
-        serializer = FlashCardSerializer(flashCard, many=True)
+        flashcard = deck.flashcard
+        serializer = FlashcardSerializer(flashcard, many=True)
         return Response(serializer.data)
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 
 
-class FlashCardViewSet(viewsets.ModelViewSet):
-    queryset = FlashCard.objects.all()
-    serializer_class = FlashCardSerializer
+class FlashcardViewSet(viewsets.ModelViewSet):
+    queryset = Flashcard.objects.all()
+    serializer_class = FlashcardSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly,
                           IsOwnerOrReadOnly]
 
 
-class DeckFlashCardViewSet(viewsets.ModelViewSet):
-    queryset = DeckFlashCard.objects.all()
-    serializer_class = DeckFlashCardSerializer
+class DeckFlashcardViewSet(viewsets.ModelViewSet):
+    queryset = DeckFlashcard.objects.all()
+    serializer_class = DeckFlashcardSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly,
                           IsOwnerOrReadOnly]
 

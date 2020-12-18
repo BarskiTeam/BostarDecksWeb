@@ -23,11 +23,11 @@ class DeckFactory(factory.django.DjangoModelFactory):
     owner = factory.SubFactory(UserFactory)
 
 
-class FlashCardFactory(factory.django.DjangoModelFactory):
+class FlashcardFactory(factory.django.DjangoModelFactory):
     class Meta:
-        model = models.FlashCard
+        model = models.Flashcard
 
-    name = factory.Sequence(lambda n: "flashCard%s" % n)
+    name = factory.Sequence(lambda n: "flashcard%s" % n)
     reverse = factory.Sequence(lambda n: "reverse%s" % n)
     averse = factory.Sequence(lambda n: "averse%s" % n)
     tip = factory.Sequence(lambda n: "tip%s" % n)
@@ -41,12 +41,12 @@ class LevelFactory(factory.django.DjangoModelFactory):
     repeat_frequency = factory.fuzzy.FuzzyInteger(0, 1000)
 
 
-class DeckFlashCardFactory(factory.django.DjangoModelFactory):
+class DeckFlashcardFactory(factory.django.DjangoModelFactory):
     class Meta:
-        model = models.DeckFlashCard
+        model = models.DeckFlashcard
 
     deck = factory.SubFactory(DeckFactory)
-    flashCard = factory.SubFactory(FlashCardFactory)
+    flashcard = factory.SubFactory(FlashcardFactory)
     level = factory.SubFactory(LevelFactory)
     good_answers = factory.fuzzy.FuzzyInteger(0, 1000)
     bad_answers = factory.fuzzy.FuzzyInteger(0, 1000)
