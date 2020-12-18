@@ -1,7 +1,7 @@
 
 from rest_framework import serializers
 from core.models import (
-    Deck, DeckFlashCard, FlashCard, Level, User
+    Deck, DeckFlashcard, Flashcard, Level, User
 )
 
 
@@ -13,15 +13,15 @@ class DeckSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
-class FlashCardSerializer(serializers.ModelSerializer):
+class FlashcardSerializer(serializers.ModelSerializer):
     class Meta:
-        model = FlashCard
+        model = Flashcard
         fields = "__all__"
 
 
-class DeckFlashCardSerializer(serializers.ModelSerializer):
+class DeckFlashcardSerializer(serializers.ModelSerializer):
     class Meta:
-        model = DeckFlashCard
+        model = DeckFlashcard
         fields = "__all__"
 
 

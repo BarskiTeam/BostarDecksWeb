@@ -23,7 +23,7 @@ Response:
     }
 
 
-Get flashCards
+Get flashcards
 **************
 `</api/v1/flashcard/deck/\<deck:id\>>`_ 
 
@@ -34,7 +34,7 @@ Response:
 .. code-block:: json
 
     {
-        "flashCard": [
+        "flashcard": [
             {
                 "name": "string",
                 "reverse": "string",
@@ -49,7 +49,7 @@ Response:
     }
 
 
-Get flashCards from one deck
+Get flashcards from one deck
 ****************************
 EXAMPLE:
 `</api/v1/deck/1/flashcards/>`_

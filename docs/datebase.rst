@@ -14,22 +14,22 @@ Deck
 
 * **name**: string
 * **description**: string
-* **deckFlashCard**: FK
+* **deckFlashcard**: FK
 * **owner**: FK
 * **public**: boolean
 * **tag**: string
 
-DeckFlashCard
+DeckFlashcard
 =============
 
 * **deck**: FK
-* **flashCard**: FK
+* **flashcard**: FK
 * **level**: FK
 * **good_answers**: int
 * **bad_answers**: int
 
 
-FlashCard
+Flashcard
 ==========
 
 * **name**: string
