@@ -7,8 +7,6 @@ TABLES
 User
 =====
 
-`<https://www.keycloak.org/>`_
-
 Deck
 =====
 
