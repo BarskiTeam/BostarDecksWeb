@@ -38,6 +38,10 @@ jobs:
         run: |
           pipenv install --dev
 
+      - name: create .env
+        run: |
+          cp .env.example .env
+
       - name: Run django test
         run: |
           pipenv run py.test
