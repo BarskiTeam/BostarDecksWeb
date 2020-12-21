@@ -8,8 +8,8 @@ app_name = ApiV1Config.name
 router = DefaultRouter()
 router.register(r'user', views.UserViewSet)
 router.register(r'deck', views.DeckViewSet)
-router.register(r'flashcard', views.FlashCardViewSet)
-router.register(r'deckflashcard', views.DeckFlashCardViewSet)
+router.register(r'flashcard', views.FlashcardViewSet)
+router.register(r'deckflashcard', views.DeckFlashcardViewSet)
 router.register(r'level', views.LevelViewSet)
 
 urlpatterns = [
