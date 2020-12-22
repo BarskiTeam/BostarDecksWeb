@@ -35,7 +35,7 @@ jobs:
         run: |
           cp .env.example .env
 
-      - name: Run django test
+      - name: Run tox test
         run: |
           tox -e test
 
@@ -68,7 +68,7 @@ jobs:
         run: |
           cp .env.example .env
 
-      - name: Run django test
+      - name: Run tox lint
         run: |
           tox -e lint
 
@@ -101,6 +101,6 @@ jobs:
         run: |
           cp .env.example .env
 
-      - name: Run django test
+      - name: Run tox format
         run: |
           tox -e format
