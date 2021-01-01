@@ -43,4 +43,5 @@ class DeckTestCase(APITestCase):
             response.data["flashcard"], list(obj.flashcard.values_list("id", flat=True))
         )
 
+
 # Create your tests here.
