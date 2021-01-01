@@ -1,12 +1,9 @@
-
 from rest_framework import serializers
-from core.models import (
-    Deck, DeckFlashcard, Flashcard, Level, User
-)
+from core.models import Deck, DeckFlashcard, Flashcard, Level, User
 
 
 class DeckSerializer(serializers.ModelSerializer):
-    owner = serializers.ReadOnlyField(source='owner.username')
+    owner = serializers.ReadOnlyField(source="owner.username")
 
     class Meta:
         model = Deck
