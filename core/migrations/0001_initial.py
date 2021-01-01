@@ -13,112 +13,290 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('auth', '0012_alter_user_first_name_max_length'),
+        ("auth", "0012_alter_user_first_name_max_length"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='User',
+            name="User",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('password', models.CharField(max_length=128, verbose_name='password')),
-                ('last_login', models.DateTimeField(blank=True, null=True, verbose_name='last login')),
-                ('is_superuser', models.BooleanField(default=False, help_text='Designates that this user has all permissions without explicitly assigning them.', verbose_name='superuser status')),
-                ('username', models.CharField(error_messages={'unique': 'A user with that username already exists.'}, help_text='Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.', max_length=150, unique=True, validators=[django.contrib.auth.validators.UnicodeUsernameValidator()], verbose_name='username')),
-                ('first_name', models.CharField(blank=True, max_length=150, verbose_name='first name')),
-                ('last_name', models.CharField(blank=True, max_length=150, verbose_name='last name')),
-                ('email', models.EmailField(blank=True, max_length=254, verbose_name='email address')),
-                ('is_staff', models.BooleanField(default=False, help_text='Designates whether the user can log into this admin site.', verbose_name='staff status')),
-                ('is_active', models.BooleanField(default=True, help_text='Designates whether this user should be treated as active. Unselect this instead of deleting accounts.', verbose_name='active')),
-                ('date_joined', models.DateTimeField(default=django.utils.timezone.now, verbose_name='date joined')),
-                ('groups', models.ManyToManyField(blank=True, help_text='The groups this user belongs to. A user will get all permissions granted to each of their groups.', related_name='user_set', related_query_name='user', to='auth.Group', verbose_name='groups')),
-                ('user_permissions', models.ManyToManyField(blank=True, help_text='Specific permissions for this user.', related_name='user_set', related_query_name='user', to='auth.Permission', verbose_name='user permissions')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("password", models.CharField(max_length=128, verbose_name="password")),
+                (
+                    "last_login",
+                    models.DateTimeField(
+                        blank=True, null=True, verbose_name="last login"
+                    ),
+                ),
+                (
+                    "is_superuser",
+                    models.BooleanField(
+                        default=False,
+                        help_text="Designates that this user has all permissions without explicitly assigning them.",
+                        verbose_name="superuser status",
+                    ),
+                ),
+                (
+                    "username",
+                    models.CharField(
+                        error_messages={
+                            "unique": "A user with that username already exists."
+                        },
+                        help_text="Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.",
+                        max_length=150,
+                        unique=True,
+                        validators=[
+                            django.contrib.auth.validators.UnicodeUsernameValidator()
+                        ],
+                        verbose_name="username",
+                    ),
+                ),
+                (
+                    "first_name",
+                    models.CharField(
+                        blank=True, max_length=150, verbose_name="first name"
+                    ),
+                ),
+                (
+                    "last_name",
+                    models.CharField(
+                        blank=True, max_length=150, verbose_name="last name"
+                    ),
+                ),
+                (
+                    "email",
+                    models.EmailField(
+                        blank=True, max_length=254, verbose_name="email address"
+                    ),
+                ),
+                (
+                    "is_staff",
+                    models.BooleanField(
+                        default=False,
+                        help_text="Designates whether the user can log into this admin site.",
+                        verbose_name="staff status",
+                    ),
+                ),
+                (
+                    "is_active",
+                    models.BooleanField(
+                        default=True,
+                        help_text="Designates whether this user should be treated as active. Unselect this instead of deleting accounts.",
+                        verbose_name="active",
+                    ),
+                ),
+                (
+                    "date_joined",
+                    models.DateTimeField(
+                        default=django.utils.timezone.now, verbose_name="date joined"
+                    ),
+                ),
+                (
+                    "groups",
+                    models.ManyToManyField(
+                        blank=True,
+                        help_text="The groups this user belongs to. A user will get all permissions granted to each of their groups.",
+                        related_name="user_set",
+                        related_query_name="user",
+                        to="auth.Group",
+                        verbose_name="groups",
+                    ),
+                ),
+                (
+                    "user_permissions",
+                    models.ManyToManyField(
+                        blank=True,
+                        help_text="Specific permissions for this user.",
+                        related_name="user_set",
+                        related_query_name="user",
+                        to="auth.Permission",
+                        verbose_name="user permissions",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'user',
-                'verbose_name_plural': 'users',
-                'abstract': False,
+                "verbose_name": "user",
+                "verbose_name_plural": "users",
+                "abstract": False,
             },
             managers=[
-                ('objects', django.contrib.auth.models.UserManager()),
+                ("objects", django.contrib.auth.models.UserManager()),
             ],
         ),
         migrations.CreateModel(
-            name='Deck',
+            name="Deck",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100, verbose_name='name of deck')),
-                ('description', models.CharField(max_length=1200, verbose_name='Description of deck')),
-                ('tag', models.CharField(max_length=50, verbose_name='tag')),
-                ('public', models.BooleanField(default=False)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=100, verbose_name="name of deck")),
+                (
+                    "description",
+                    models.CharField(
+                        max_length=1200, verbose_name="Description of deck"
+                    ),
+                ),
+                ("tag", models.CharField(max_length=50, verbose_name="tag")),
+                ("public", models.BooleanField(default=False)),
             ],
             options={
-                'verbose_name': 'Deck',
-                'verbose_name_plural': 'Decks',
-                'ordering': ['name'],
+                "verbose_name": "Deck",
+                "verbose_name_plural": "Decks",
+                "ordering": ["name"],
             },
         ),
         migrations.CreateModel(
-            name='DeckFlashcard',
+            name="DeckFlashcard",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('good_answers', models.IntegerField(default=0, verbose_name='good answers')),
-                ('bad_answers', models.IntegerField(default=0, verbose_name='bad answers')),
-                ('deck', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='core.deck')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "good_answers",
+                    models.IntegerField(default=0, verbose_name="good answers"),
+                ),
+                (
+                    "bad_answers",
+                    models.IntegerField(default=0, verbose_name="bad answers"),
+                ),
+                (
+                    "deck",
+                    models.ForeignKey(
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        to="core.deck",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'DeckFlashcard',
-                'verbose_name_plural': 'DeckFlashcards',
-                'ordering': ['id'],
+                "verbose_name": "DeckFlashcard",
+                "verbose_name_plural": "DeckFlashcards",
+                "ordering": ["id"],
             },
         ),
         migrations.CreateModel(
-            name='Level',
+            name="Level",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100, verbose_name='name of levels')),
-                ('repeat_frequency', models.IntegerField(verbose_name='time of frequency')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "name",
+                    models.CharField(max_length=100, verbose_name="name of levels"),
+                ),
+                (
+                    "repeat_frequency",
+                    models.IntegerField(verbose_name="time of frequency"),
+                ),
             ],
             options={
-                'verbose_name': 'Level',
-                'verbose_name_plural': 'Levels',
-                'ordering': ['id'],
+                "verbose_name": "Level",
+                "verbose_name_plural": "Levels",
+                "ordering": ["id"],
             },
         ),
         migrations.CreateModel(
-            name='Flashcard',
+            name="Flashcard",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100, verbose_name='name of flashcard')),
-                ('averse', models.CharField(max_length=1200, verbose_name='Avers of card')),
-                ('reverse', models.CharField(max_length=1200, verbose_name='Revers of card')),
-                ('tip', models.CharField(max_length=100, verbose_name='Tip for flash card')),
-                ('deck', models.ManyToManyField(related_name='flashcard_list', through='core.DeckFlashcard', to='core.Deck')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "name",
+                    models.CharField(max_length=100, verbose_name="name of flashcard"),
+                ),
+                (
+                    "averse",
+                    models.CharField(max_length=1200, verbose_name="Avers of card"),
+                ),
+                (
+                    "reverse",
+                    models.CharField(max_length=1200, verbose_name="Revers of card"),
+                ),
+                (
+                    "tip",
+                    models.CharField(max_length=100, verbose_name="Tip for flash card"),
+                ),
+                (
+                    "deck",
+                    models.ManyToManyField(
+                        related_name="flashcard_list",
+                        through="core.DeckFlashcard",
+                        to="core.Deck",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Flashcard',
-                'verbose_name_plural': 'Flashcards',
-                'ordering': ['name'],
+                "verbose_name": "Flashcard",
+                "verbose_name_plural": "Flashcards",
+                "ordering": ["name"],
             },
         ),
         migrations.AddField(
-            model_name='deckflashcard',
-            name='flashcard',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='core.flashcard'),
+            model_name="deckflashcard",
+            name="flashcard",
+            field=models.ForeignKey(
+                null=True,
+                on_delete=django.db.models.deletion.SET_NULL,
+                to="core.flashcard",
+            ),
         ),
         migrations.AddField(
-            model_name='deckflashcard',
-            name='level',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='core.level'),
+            model_name="deckflashcard",
+            name="level",
+            field=models.ForeignKey(
+                null=True, on_delete=django.db.models.deletion.SET_NULL, to="core.level"
+            ),
         ),
         migrations.AddField(
-            model_name='deck',
-            name='flashcard',
-            field=models.ManyToManyField(related_name='deck_list', through='core.DeckFlashcard', to='core.Flashcard'),
+            model_name="deck",
+            name="flashcard",
+            field=models.ManyToManyField(
+                related_name="deck_list",
+                through="core.DeckFlashcard",
+                to="core.Flashcard",
+            ),
         ),
         migrations.AddField(
-            model_name='deck',
-            name='owner',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, related_name='deck_list', to=settings.AUTH_USER_MODEL),
+            model_name="deck",
+            name="owner",
+            field=models.ForeignKey(
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="deck_list",
+                to=settings.AUTH_USER_MODEL,
+            ),
         ),
     ]
