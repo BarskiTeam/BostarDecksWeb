@@ -1,6 +1,7 @@
 import pytest
+
 from .. import factories
-from ..models import Deck, Flashcard, Level, DeckFlashcard, User
+from ..models import Deck, DeckFlashcard, Flashcard, Level, User
 
 pytestmark = pytest.mark.django_db
 
