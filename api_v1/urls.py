@@ -1,6 +1,7 @@
-from django.urls import path, include
-from . import views
+from django.urls import include, path
 from rest_framework.routers import DefaultRouter
+
+from . import views
 from .apps import ApiV1Config
 
 app_name = ApiV1Config.name
