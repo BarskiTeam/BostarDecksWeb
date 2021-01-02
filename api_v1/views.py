@@ -1,9 +1,10 @@
-from rest_framework import viewsets, permissions
-from rest_framework.decorators import api_view, action
+from rest_framework import permissions, viewsets
+from rest_framework.decorators import action, api_view
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
 
 from core.models import Deck, DeckFlashcard, Flashcard, Level, User
+
 from .permissions import IsOwnerOrReadOnly
 from .serializers import (
     DeckFlashcardSerializer,
