@@ -43,7 +43,7 @@ class DeckViewSet(viewsets.ModelViewSet):
     serializer_class = DeckSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
 
-    # example destination_url of this view : http://127.0.0.1:8000/api/v1/deck/1/flashcards/
+    # http://127.0.0.1:8000/api/v1/deck/1/flashcards/
     @action(methods=["get"], detail=True, permission_classes=[IsOwnerOrReadOnly])
     def flashcards(self, request, pk):
         deck = Deck.objects.get(id=pk)
