@@ -1,11 +1,9 @@
-import json
-
-from django.test.client import RequestFactory, encode_multipart
-from rest_framework.test import APITestCase, URLPatternsTestCase
+from django.test.client import RequestFactory
+from rest_framework.test import APITestCase
 
 from api_v1.views import DeckViewSet
-from core.factories import DeckFactory, DeckFlashcardFactory, FlashcardFactory
-from core.models import Deck, DeckFlashcard, Flashcard
+from core.factories import DeckFactory, FlashcardFactory
+from core.models import Deck
 
 
 class DeckTestCase(APITestCase):
