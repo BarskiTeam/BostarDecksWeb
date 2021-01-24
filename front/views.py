@@ -22,7 +22,7 @@ def decksListView(request):
 
 def deckView(request, deck_id):
     deck = get_object_or_404(Deck, pk=deck_id)
-    return render(request, 'front/deck_menu.html', {'deck': deck})
+    return render(request, "front/deck_menu.html", {"deck": deck})
 
 
 def flashCardView(request):
@@ -31,7 +31,7 @@ def flashCardView(request):
 
 def deckEditView(request, deck_id):
     deck = get_object_or_404(Deck, pk=deck_id)
-    return render(request, 'front/deck_edit.html', {'deck': deck})
+    return render(request, "front/deck_edit.html", {"deck": deck})
 
 
 def baseView(request):
