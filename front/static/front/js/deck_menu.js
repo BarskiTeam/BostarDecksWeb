@@ -52,15 +52,13 @@ $( document ).ready(function() {
         }
     ],
     columns: [
-        { data: 'id' },
-        { data: 'name' },
-        { data: 'averse' },
-        { data: 'edit',
+        { data: 'id',
           render: function (data, type, full, meta) {
-            numer = data
-            return '<a href="' + revers_urls.flashcards + numer + '" class="btn btn-w-m btn-success"> Edit </a>';
+            return '<a href="' + revers_urls.flashcards + data  + '" class="btn btn-w-m btn-success">' + data + '</a>';
           }
         },
+        { data: 'name' },
+        { data: 'averse' },
     ]
   });
 })
