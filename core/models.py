@@ -28,8 +28,8 @@ class Deck(models.Model):
 
 
 class DeckFlashcard(models.Model):
-    deck = models.ForeignKey("Deck", on_delete=models.SET_NULL, null=True)
-    flashcard = models.ForeignKey("Flashcard", on_delete=models.SET_NULL, null=True)
+    deck = models.ForeignKey("Deck", on_delete=models.CASCADE, default=1, null=False)
+    flashcard = models.ForeignKey("Flashcard", on_delete=models.CASCADE, default=1, null=False)
     level = models.ForeignKey("Level", on_delete=models.SET_NULL, null=True)
     good_answers = models.IntegerField(verbose_name="good answers", default=0)
     bad_answers = models.IntegerField(verbose_name="bad answers", default=0)
@@ -50,6 +50,9 @@ class Flashcard(models.Model):
     tip = models.CharField(max_length=100, verbose_name="Tip for flash card")
     deck = models.ManyToManyField(
         "Deck", related_name="flashcard_list", through="DeckFlashcard"
+    )
+    owner = models.ForeignKey(
+        "User", related_name="flashcard_list", on_delete=models.CASCADE, null=True
     )
     # tag = lista tagów/stringow
 
