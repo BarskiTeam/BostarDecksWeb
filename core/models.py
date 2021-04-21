@@ -51,6 +51,9 @@ class Flashcard(models.Model):
     deck = models.ManyToManyField(
         "Deck", related_name="flashcard_list", through="DeckFlashcard"
     )
+    owner = models.ForeignKey(
+        "User", related_name="flashcard_list", on_delete=models.CASCADE, null=True
+    )
     # tag = lista tagów/stringow
 
     def __str__(self):

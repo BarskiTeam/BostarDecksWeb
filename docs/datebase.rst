@@ -34,6 +34,7 @@ Flashcard
 * **averse**: string
 * **reverse**: string
 * **tip**: string
+* **owner**: FK
 .. this is useable for Kusofc - if i wont able to remember word i can activate show a tips for a word
 
 * **tag**: list<string>
